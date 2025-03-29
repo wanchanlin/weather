@@ -6,6 +6,11 @@ html
     title #{title} | Test website
     block scripts 
       link(rel="stylesheet", type="text/css", href="/styles.css")
+    block scripts
+      script(
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs",
+      type="module"
+  )
   body
     header#header 
       .header-content   
@@ -14,4 +19,4 @@ html
     main#main 
       block main-content 
     footer#footer 
-      p &copy; Copyright HTTP5211, 2023.
+      p &copy; Copyright Earth V.S. Mars.

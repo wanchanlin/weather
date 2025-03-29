@@ -1,3 +1,65 @@
 body {
-  font-family:'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: sans-serif;
+  color:#fff;
+  background-color:#000;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 20px
+}
+h1 {
+  font-size: 2.5rem; /* 2.5 times the base font size */
+}
+p {
+  font-size: 1rem; /* Same as the base font size */
+}
+small, caption {
+  font-size: 0.8rem; /* 80% of the base font size */
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.comparison-item:last-child {
+  border-bottom: none;
+}
+.emphasis {
+  font-weight: bold;
+  color: #007bff;
+}
+.lottie-container {
+  position: relative; /* Make this the positioning context */
+  width: 50%; /* Adjust as needed */
+  max-width: 700px; /* To match the previous width if desired */
+  margin: 0 auto; /* Center the container */
+}
+
+.overlay-text {
+  position: absolute; /* Position the text over the Lottie */
+  top: 40%; /* Vertically center the text */
+  left: 50%; /* Horizontally center the text */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  color: rgb(0, 0, 0); /* Set text color for visibility */
+  font-size: 2em; /* Adjust font size as needed */
+  text-align: center;
+  background-color: #fbff00ba;
+  width: 100%; /* Make sure it spans the container */
+  z-index: 10; /* Ensure it's above the Lottie player */
+  margin: 0; /* Remove default heading margins */
+}
+
+/* You might need to adjust the dotlottie-player styles slightly */
+dotlottie-player {
+  display: block; /* Prevent extra spacing below inline elements */
+  width: 100%;
+  height: auto;
 }

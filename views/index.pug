@@ -1,8 +1,36 @@
-extends layout 
+extends layout
 
-block main-content 
-  h1.page-title Hello! 
-  each m in trendingMovies 
-    h2: a(href=`/movie/${m.movie.ids.imdb}/studios`) #{m.movie.title}
-    p Year released: #{m.movie.year}
-    p #{m.movie.overview}
+block main-content
+  .lottie-container
+    dotlottie-player(
+      src="https://lottie.host/1d3fcaaa-05a4-43b0-93ac-80a291cec315/baPpGDhbrI.lottie",
+      background="transparent",
+      speed="1",
+      style="width: 100%; height: auto",
+      loop,
+      autoplay
+    )
+    h1.overlay-text Earth vs. Mars Weather: A Comparative Look
+
+  p Earth and Mars, our neighboring planets, have vastly different weather conditions. Here's a comparison of key aspects:
+
+  .comparison-item
+    h3 Temperature
+    p <span class="emphasis">Earth:</span> Experiences a wide range of temperatures depending on location and season, with an average surface temperature of around <span class="emphasis">15°C (59°F)</span>. Liquid water can exist on the surface.
+    p <span class="emphasis">Mars:</span> Much colder than Earth, with an average surface temperature of about <span class="emphasis">-63°C (-81°F)</span>. Temperatures fluctuate dramatically between day and night. Liquid water is unstable on the surface under current conditions.
+
+  .comparison-item
+    h3 Atmosphere
+    p <span class="emphasis">Earth:</span> A relatively dense atmosphere composed primarily of nitrogen (about 78%) and oxygen (about 21%), with trace amounts of other gases. This atmosphere supports life, regulates temperature, and protects from much of the Sun's harmful radiation.
+    p <span class="emphasis">Mars:</span> A very thin atmosphere, only about 1% as dense as Earth's, composed mainly of carbon dioxide (about 95%). It offers little protection from radiation and contributes to the planet's extreme temperature variations.
+
+  .comparison-item
+    h2 Water
+    p <span class="emphasis">Earth:</span> Abundant liquid water covers about 71% of the surface in the form of oceans, lakes, and rivers. Water also exists as ice at the poles and in glaciers, and as vapor in the atmosphere.
+    p <span class="emphasis">Mars:</span> Most water is currently frozen in ice caps at the poles and likely exists as subsurface ice. The thin atmosphere prevents stable liquid water from persisting on the surface for long periods under present conditions. Evidence suggests liquid water may have been more prevalent in Mars's past.
+
+  .comparison-item
+    h2 Weather Phenomena
+    p <span class="emphasis">Earth:</span> Diverse weather patterns including rain, snow, wind, clouds, storms (hurricanes, cyclones, tornadoes), and more predictable seasonal changes driven by solar energy and the planet's rotation and tilt.
+    p <span class="emphasis">Mars:</span> Experiences dust storms, ranging from localized dust devils to planet-encompassing events. It also has ice clouds (water and carbon dioxide ice) and weak winds. Seasonal changes occur due to its axial tilt, similar to Earth, but Martian years are nearly twice as long.
+

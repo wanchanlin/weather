@@ -5,7 +5,9 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const trakt = require("./components/trakt/api");
-const weather = require("./components/weather/weather"); //
+const weather = require("./components/weather/earth");
+const mars = require("./components/weather/mars");
+
 
 //set up Express app
 const app = express();
@@ -21,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/movie", async (request, response) => {
   let movies = await trakt.getTrendingMovies();
   console.log(movies);
-  response.render("index", { trendingMovies: movies });
+  response.render("movie", { trendingMovies: movies });
 });
 app.get("/movie/:imdb/studios", async (request, response) => {
   console.log(request.params.imdb); //request.params contains any url placeholders (e.g. :imdbId is a placeholder named imdbId)
@@ -29,12 +31,20 @@ app.get("/movie/:imdb/studios", async (request, response) => {
   //console.log(studios);
   response.render("studios", { movieStudios: studios });
 });
-// New route to display weather
-// app.get("/weather/:city", async (req, res) => {
-//   const city = req.params.city;
-//   const weatherData = await weather.getWeatherByCity(city);
-//   res.render("weather", { weatherData: weatherData, city: city });
-// });
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
+app.get("/mars-weather", async (req, res) => {
+  try {
+      const weatherData = await mars.getMarsWeather();
+      res.render("mars-weather", { weatherData });
+  } catch (error) {
+      console.error("Error fetching Mars weather:", error); // Log the whole error object
+      res.status(500).send("Could not retrieve Mars weather data.");
+  }
+});
+
 app.get("/:city", async (req, res) => {
 console.log("Weather route hit");
   try {
@@ -47,6 +57,7 @@ console.log("Weather route hit");
     res.status(500).send("Could not retrieve weather data.");
   }
 });
+
 
 //set up server listening
 app.listen(port, () => {
