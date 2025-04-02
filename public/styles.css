@@ -9,6 +9,9 @@ body {
 h1 {
   font-size: 2.5rem; /* 2.5 times the base font size */
 }
+.page-title {
+  text-align: center; /* 3 times the base font size */
+}
 p {
   font-size: 1rem; /* Same as the base font size */
 }
@@ -44,22 +47,39 @@ small, caption {
 }
 
 .overlay-text {
+  padding:3rem;
   position: absolute; /* Position the text over the Lottie */
   top: 40%; /* Vertically center the text */
   left: 50%; /* Horizontally center the text */
   transform: translate(-50%, -50%); /* Adjust for exact centering */
-  color: rgb(0, 0, 0); /* Set text color for visibility */
+  color: rgb(255, 255, 255); /* Set text color for visibility */
   font-size: 2em; /* Adjust font size as needed */
   text-align: center;
-  background-color: #fbff00ba;
+  background-color: #00000065;
   width: 100%; /* Make sure it spans the container */
   z-index: 10; /* Ensure it's above the Lottie player */
   margin: 0; /* Remove default heading margins */
 }
 
-/* You might need to adjust the dotlottie-player styles slightly */
+
 dotlottie-player {
   display: block; /* Prevent extra spacing below inline elements */
   width: 100%;
   height: auto;
+}
+
+/* weather comparison */
+.weather-container {
+margin:60px auto; /* Center the container */
+  display: flex;
+  justify-content: center; 
+  gap: 60px; /* Adds space between the two sections */
+}
+
+.weather-section {
+  border: 1px solid #ccc; /* Light border for separation */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Adjust width to your preference */
 }

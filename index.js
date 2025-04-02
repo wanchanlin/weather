@@ -44,19 +44,46 @@ app.get("/mars-weather", async (req, res) => {
       res.status(500).send("Could not retrieve Mars weather data.");
   }
 });
-
-app.get("/:city", async (req, res) => {
-console.log("Weather route hit");
+app.get('/weather', (req, res) => {
+  res.render('index');
+});
+app.get('/weather/:city', async (req, res) => {
   try {
     const city = req.params.city;
-    console.log(city);
-    const weatherData = await weather.getWeatherByCity(city);
-    res.render("weather", { weatherData: weatherData, city: city });
+    // Fetch both datasets in parallel
+    const [earthData, marsData] = await Promise.all([
+      weather.getWeatherByCity(city),
+      mars.getMarsWeather()
+    ]);
+    
+    res.render("weather", { 
+      earthWeather: earthData,
+      marsWeather: marsData,
+      city: city
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Could not retrieve weather data.");
+    res.status(500).send("Error retrieving data");
   }
 });
+app.use(express.urlencoded({ extended: true })); // Add this near the top of your file with other middleware
+
+app.post('/weather', (req, res) => {
+  const city = req.body.city;
+  res.redirect(`/weather/${city}`);
+});
+// app.get("/:city", async (req, res) => {
+// console.log("Weather route hit");
+//   try {
+//     const city = req.params.city;
+//     console.log(city);
+//     const weatherData = await weather.getWeatherByCity(city);
+//     res.render("weather", { weatherData: weatherData, city: city });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Could not retrieve weather data.");
+//   }
+// });
 
 
 //set up server listening
