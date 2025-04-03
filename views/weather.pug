@@ -30,6 +30,16 @@ block main-content
       else
         p.error No Mars weather data available
   
+  // Add the temperature comparison section
+  .temperature-advice
+    if marsWeather && marsWeather.sol_keys && earthWeather.cod == 200
+      - var tempDiff = Math.abs(marsWeather[latestSol].AT.av - earthWeather.main.temp)
+      if tempDiff > 80
+        p.warning ⚠️ The temperature difference is #{tempDiff.toFixed(1)}°C! You might want to reconsider moving to Mars.
+      else if tempDiff > 40
+        p.warning 🤔 Temperature difference of #{tempDiff.toFixed(1)}°C - Mars might be a bit challenging!
+      else
+        p.info Temperature difference is only #{tempDiff.toFixed(1)}°C - Not too extreme!
   
   div.center
     a(href="/")

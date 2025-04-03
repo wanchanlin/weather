@@ -122,3 +122,19 @@ input{
 .center{
 margin: 0 auto 60px auto;
 text-align: center;}
+.temperature-advice {
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.warning {
+  color: #d63031;
+  font-weight: bold;
+}
+
+.info {
+  color: #0984e3;
+  font-weight: bold;
+}
