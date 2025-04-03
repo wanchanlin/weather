@@ -83,3 +83,42 @@ margin:60px auto; /* Center the container */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 90%; /* Adjust width to your preference */
 }
+.logo{
+  width: 200px;
+  height: auto; /* Maintain aspect ratio */
+  text-align: center;
+}
+footer{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.8rem; /* Smaller font size for footer */
+  color: #aaa; /* Lighter color for footer text */
+}
+button {
+  background-color: #727272c0; /* Bootstrap primary color */
+  color: #fff; /* White text */        
+  border: none; /* No border */
+  border: #fff;
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for the button */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+button:hover {      
+  background-color: #696969; /* Darker shade on hover */
+} 
+input{
+  border: 1px solid #ccc; /* Light border for input fields */
+  padding: 10px; /* Padding for input fields */
+  border-radius: 4px; /* Rounded corners */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+} 
+.header-content{
+  text-align: center;
+  
+}
+.center{
+margin: 0 auto 60px auto;
+text-align: center;}

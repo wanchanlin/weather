@@ -4,7 +4,6 @@ const path = require("path");
 const dotenv = require("dotenv");
 
 dotenv.config();
-const trakt = require("./components/trakt/api");
 const weather = require("./components/weather/earth");
 const mars = require("./components/weather/mars");
 
@@ -19,18 +18,7 @@ app.set("view engine", "pug");
 //setup public folder
 app.use(express.static(path.join(__dirname, "public")));
 
-//PAGE ROUTES
-app.get("/movie", async (request, response) => {
-  let movies = await trakt.getTrendingMovies();
-  console.log(movies);
-  response.render("movie", { trendingMovies: movies });
-});
-app.get("/movie/:imdb/studios", async (request, response) => {
-  console.log(request.params.imdb); //request.params contains any url placeholders (e.g. :imdbId is a placeholder named imdbId)
-  let studios = await trakt.getStudiosByMovieId(request.params.imdb);
-  //console.log(studios);
-  response.render("studios", { movieStudios: studios });
-});
+
 
 app.get('/', (req, res) => {
   res.render('index');
